@@ -52,8 +52,8 @@ pipeline {
                               sleep 10
                             """
                             
-                            def deployStatus = sh(script: "kubectl rollout status deployment/${component} --timeout=30s -n roboshop || echo FAILED",returnStdout: true).trim()
-                            if(deployStatus.contains('successfully rolled out'))
+                            def RollbackStatus = sh(script: "kubectl rollout status deployment/${component} --timeout=30s -n roboshop || echo FAILED",returnStdout: true).trim()
+                            if(RollbackStatus.contains('successfully rolled out'))
                             {
                                 echo "deployment is failed and rollback success"
                             }
