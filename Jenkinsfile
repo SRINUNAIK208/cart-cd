@@ -15,7 +15,7 @@ pipeline {
     }
     parameters{
         string(name: 'appVersion', description: 'Image version of application')
-        choice(name: 'deploy', choices:['dev','qa','prod'], description: 'pick the environment')
+        choice(name: 'deploy_to', choices:['dev','qa','prod'], description: 'pick the environment')
     }
     stages {
         stage('Deploy'){
