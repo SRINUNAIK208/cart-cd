@@ -1,18 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: sealed-secrets
+  name: cart
   namespace: argocd
 spec:
   project: default
   source:
-    repoURL: https://bitnami.github.io/sealed-secrets
+    repoURL: https://github.com/SRINUNAIK208/cart-cd.git
     targetRevision: main
     path: .
     helm:
-      releaseName: catalogue
+      releaseName: cart
       valueFiles:
-      - values-qa.yaml
+      - values-dev.yaml
   destination:
     server: "https://kubernetes.default.svc"
     namespace: kubeseal
